@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Login"
+        android:id="@+id/bottomNavLogin"
+        android:icon="@drawable/ic_login"
+        android:iconTint="@color/grey"/>
+
+    <item android:title="Register"
+        android:id="@+id/bottomNavRegister"
+        android:iconTint="@color/grey"
+        android:icon="@drawable/ic_register"/>
+    <item android:title="Reset"
+        android:id="@+id/bottomNavReset"
+        android:icon="@drawable/ic_reset"
+        android:iconTint="@color/grey"/>
+
+
+</menu>

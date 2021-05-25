@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerFirstNameLayout"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerFirstName"
+            android:hint="Enter your first name"
+            android:textStyle="italic"
+            android:layout_below="@id/registerFirstNameTitle"
+            android:layout_toEndOf="@id/registerFirstNameIcon"
+            android:layout_marginStart="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerFirstNameTitle"
+            android:text="Forename"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_toEndOf="@id/registerFirstNameIcon"
+            android:layout_marginStart="15dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerFirstNameIcon"
+            android:src="@drawable/ic_first_name"
+            android:layout_alignBottom="@id/registerFirstName"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerSurnameNameLayout"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_below="@+id/registerFirstNameLayout">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerSurname"
+            android:hint="Enter your surname"
+            android:textStyle="italic"
+            android:layout_below="@id/registerSurnameTitle"
+            android:layout_toEndOf="@id/registerSurnameIcon"
+            android:layout_marginStart="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerSurnameTitle"
+            android:text="Surname"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_toEndOf="@id/registerSurnameIcon"
+            android:layout_marginStart="15dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerSurnameIcon"
+            android:src="@drawable/ic_first_name"
+            android:layout_alignBottom="@id/registerSurname"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerEmailLayout"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_below="@+id/registerSurnameNameLayout">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerEmail"
+            android:hint="Enter your email"
+            android:textStyle="italic"
+            android:layout_below="@id/registerEmailTitle"
+            android:layout_toEndOf="@id/registerEmailIcon"
+            android:layout_marginStart="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerEmailTitle"
+            android:text="Email"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_toEndOf="@id/registerEmailIcon"
+            android:layout_marginStart="15dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerEmailIcon"
+            android:src="@drawable/ic_register_email_icon"
+            android:layout_alignBottom="@id/registerEmail"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerPasswordLayout"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_below="@+id/registerEmailLayout">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerPassword"
+            android:hint="Enter your password"
+            android:textStyle="italic"
+            android:layout_below="@id/registerPasswordTitle"
+            android:layout_toEndOf="@id/registerPasswordIcon"
+            android:layout_marginStart="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerPasswordTitle"
+            android:text="Password"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_toEndOf="@id/registerPasswordIcon"
+            android:layout_marginStart="15dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerPasswordIcon"
+            android:src="@drawable/ic_register_password"
+            android:layout_alignBottom="@id/registerPassword"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerConfirmPasswordLayout"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_below="@+id/registerPasswordLayout">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerConfirmPassword"
+            android:hint="Confirm your password"
+            android:textStyle="italic"
+            android:layout_below="@id/registerConfirmPasswordTitle"
+            android:layout_toEndOf="@id/registerConfirmPasswordIcon"
+            android:layout_marginStart="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerConfirmPasswordTitle"
+            android:text="Confirm password"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_toEndOf="@id/registerConfirmPasswordIcon"
+            android:layout_marginStart="15dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerConfirmPasswordIcon"
+            android:src="@drawable/ic_register_password"
+            android:layout_alignBottom="@id/registerConfirmPassword"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerButtonLayout"
+        android:layout_below="@id/registerConfirmPasswordLayout"
+        android:layout_marginTop="40dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerButton"
+            android:text="Register"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/grey"
+
+            />
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

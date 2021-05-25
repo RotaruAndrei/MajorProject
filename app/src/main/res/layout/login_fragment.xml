@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/loginFragment">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/loginFragment_emailLayout">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loginEmailImage"
+            android:src="@drawable/ic_email"
+            android:layout_alignBottom="@id/loginEmail"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your email"
+            android:id="@+id/loginEmail"
+            android:layout_toEndOf="@id/loginEmailImage"
+            android:textStyle="italic"
+            android:layout_marginStart="15dp"
+            android:layout_below="@id/loginEmailTv"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loginEmailTv"
+            android:text="Email"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_toEndOf="@id/loginEmailImage"
+            android:layout_marginStart="15sp"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginFragment_passwordLayout"
+        android:layout_below="@id/loginFragment_emailLayout"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loginPasswordImage"
+            android:src="@drawable/ic_password"
+            android:layout_alignBottom="@id/loginPassword"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/loginPassword"
+            android:hint="Enter your password"
+            android:textStyle="italic"
+            android:layout_toEndOf="@id/loginPasswordImage"
+            android:layout_marginStart="15dp"
+            android:inputType="textPassword"
+            android:layout_below="@id/loginPasswordTv"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loginPasswordTv"
+            android:text="Password"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_toEndOf="@id/loginPasswordImage"
+            android:layout_marginStart="15sp"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginFragment_buttonLayout"
+        android:layout_below="@id/loginFragment_passwordLayout"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="150dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/loginButton"
+            android:text="Login"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/grey"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginFragment_checkBoxLayout"
+        android:layout_below="@id/loginFragment_passwordLayout"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp">
+
+        <CheckBox
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="30dp"
+            android:id="@+id/loginCheckBox"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loginCheckboxTitle"
+            android:text="Remember me"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/loginCheckBox"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/grey"
+            android:textStyle="italic"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="My profile"
+        android:id="@+id/drawer_nav_profile"
+        android:icon="@drawable/ic_drawer_nav_profile"/>
+
+    <item android:title="About us"
+        android:id="@+id/drawer_nav_about"
+        android:icon="@drawable/ic_drawer_nav_about"/>
+
+    <item android:title="Terms"
+        android:id="@+id/drawer_nav_terms"
+        android:icon="@drawable/ic_drawer_nav_terms"/>
+
+    <item android:title="Licences"
+        android:id="@+id/drawer_nav_licences"
+        android:icon="@drawable/ic_drawer_nav_licences"/>
+
+
+
+</menu>
