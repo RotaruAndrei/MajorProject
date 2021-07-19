@@ -18,7 +18,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/dashboard_toolbar"
             android:elevation="6dp"
-            android:background="@color/purple_200"/>
+            android:background="@color/purple_200"
+            app:popupTheme="@style/Widget.MaterialComponents.Toolbar"/>
 
         <FrameLayout
             android:layout_width="match_parent"

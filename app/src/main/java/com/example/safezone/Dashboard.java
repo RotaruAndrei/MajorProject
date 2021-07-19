@@ -6,6 +6,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 
 import com.example.safezone.fragments.DashboardFragment;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -35,12 +36,19 @@ public class Dashboard extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_container,new DashboardFragment()).commit();
 
     }
-
+// on back press only for development purpose  but must be deleted after
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent(this,MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu,menu);
+
+        return true;
     }
 }

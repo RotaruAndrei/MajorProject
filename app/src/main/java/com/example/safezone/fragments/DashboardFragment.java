@@ -24,8 +24,8 @@ public class DashboardFragment extends Fragment {
         View view = inflater.inflate(R.layout.dashboard_fragment,container,false);
 
         sendCard = view.findViewById(R.id.dashboard_sendCard);
-        complainCard = view.findViewById(R.id.dashboard_complainCard);
-        feedbackCard = view.findViewById(R.id.dashboard_feedbackCard);
+        complainCard = view.findViewById(R.id.dashboard_your_rightsCard);
+        feedbackCard = view.findViewById(R.id.dashboard_newsCard);
         button = view.findViewById(R.id.dashboard_extendedFloatingButton);
 
 

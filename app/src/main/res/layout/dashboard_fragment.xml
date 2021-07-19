@@ -27,7 +27,19 @@
                 android:text="Send file"
                 android:textStyle="italic|bold"
                 android:textSize="16sp"
-                android:layout_centerInParent="true"/>
+                android:textColor="@color/black"
+                android:layout_toEndOf="@+id/dashboard_sendCard_Img"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"/>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/dashboard_sendCard_Img"
+                android:src="@drawable/ic_dashboard_sendcard_img"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                />
 
         </RelativeLayout>
 
@@ -39,7 +51,7 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:id="@+id/dashboard_complainCard"
+        android:id="@+id/dashboard_your_rightsCard"
         android:layout_below="@id/dashboard_sendCard"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
@@ -52,14 +64,27 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/dashboard_your_rightsCard_Icon"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/ic_dashboard_rights"
+                />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/dashboard_complain_Title"
-                android:text="Complain form"
+                android:text="Your rights"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold|italic"
-                android:layout_centerInParent="true"/>
+                android:layout_toEndOf="@id/dashboard_your_rightsCard_Icon"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                />
 
         </RelativeLayout>
 
@@ -67,14 +92,14 @@
 
 
     </com.google.android.material.card.MaterialCardView>
-    
-    
+
+
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:id="@+id/dashboard_feedbackCard"
+        android:layout_height="90dp"
+        android:id="@+id/dashboard_newsCard"
         android:backgroundTint="@color/purple_200"
-        android:layout_below="@id/dashboard_complainCard"
+        android:layout_below="@id/dashboard_your_rightsCard"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
@@ -90,11 +115,24 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dashboard_feedback_title"
-                android:text="Give us your feedback"
+                android:id="@+id/dashboard_newsCard_title"
+                android:text="Local news headlines"
                 android:textStyle="bold|italic"
+                android:layout_toEndOf="@id/dashboard_newsCard_Icon"
+                android:layout_marginStart="20dp"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:layout_centerInParent="true"/>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/dashboard_newsCard_Icon"
+                android:src="@drawable/ic_dashboard_news_icon"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+
+                />
 
         </RelativeLayout>
 
@@ -106,16 +144,17 @@
 
     <com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="90dp"
         android:layout_alignParentBottom="true">
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/dashboard_extendedFloatingButton"
-            android:text="Emergency"
+            android:text="SOS | Help"
+            android:textColor="@color/black"
             android:textAllCaps="false"
-            app:icon="@drawable/ic_extended_floating_button"
+            app:icon="@drawable/ic_dashboard_sos"
             android:layout_gravity="center"
             android:backgroundTint="@color/purple_200"
             />
