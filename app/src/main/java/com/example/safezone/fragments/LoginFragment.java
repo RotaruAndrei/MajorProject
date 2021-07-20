@@ -24,6 +24,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.ktx.Firebase;
 
 public class LoginFragment extends Fragment {
 
@@ -66,7 +68,7 @@ public class LoginFragment extends Fragment {
     }
 
     // firebase logic
-    
+
     private void userLogin (){
 
         mAuth = FirebaseAuth.getInstance();
@@ -100,10 +102,26 @@ public class LoginFragment extends Fragment {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
 
-                    progressBar.setVisibility(View.GONE);
-                    Intent intent = new Intent(getActivity(), Dashboard.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
+                    // get current user id
+
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                    // a check if the user veryfied his email in order to login in
+
+                    if (user.isEmailVerified()){
+
+                        progressBar.setVisibility(View.GONE);
+                        Intent intent = new Intent(getActivity(), Dashboard.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    }else {
+
+                        user.sendEmailVerification();
+                        Toast.makeText(getActivity(), "Check your email in order to verify your account", Toast.LENGTH_SHORT).show();
+                    }
+
+
+
 
                 }else {
                     Toast.makeText(getActivity(), "Login failed, email or password incorrect, try again", Toast.LENGTH_SHORT).show();

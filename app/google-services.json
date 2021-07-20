@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "591002527683",
+    "project_id": "help2protect-99da3",
+    "storage_bucket": "help2protect-99da3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591002527683:android:a0a046bf003d6ef849ff76",
+        "android_client_info": {
+          "package_name": "com.example.safezone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591002527683-qrksd9e2mnp3ae3preipgod4lptpao60.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOy7wCwkRuGglAoLm0ws6P2be7j5_ACx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591002527683-qrksd9e2mnp3ae3preipgod4lptpao60.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
