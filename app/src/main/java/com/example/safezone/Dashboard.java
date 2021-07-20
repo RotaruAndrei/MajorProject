@@ -11,15 +11,35 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.safezone.fragments.DashboardFragment;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Dashboard extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private MaterialToolbar toolbar;
+    private NavigationView drawerNav;
+
+    private TextView userName;
+    private ImageView userIcon;
+    private FirebaseUser user;
+    private DatabaseReference databaseReference;
+    private String userID;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +48,62 @@ public class Dashboard extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_menu);
         toolbar = findViewById(R.id.dashboard_toolbar);
+        drawerNav = findViewById(R.id.dashboard_navMenu);
+
+
+        userIcon = findViewById(R.id.drawer_nav_header_image);
+
+
+
+
+        // drawer menu nav logic
+
+        drawerNav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+
+                    case R.id.drawer_nav_about:
+                        Toast.makeText(Dashboard.this, "What about us ?", Toast.LENGTH_SHORT).show();
+                        break;
+
+                }
+                return true;
+            }
+        });
+
+
+
+
+//        if (userID != null){
+//
+//            databaseReference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                    UserModelClass userProfile = snapshot.getValue(UserModelClass.class);
+//
+//                    if (userProfile != null){
+//
+//                        String n_Name = userProfile.getForname();
+//                        String n_Surname = userProfile.getSurname();
+//
+////                    userName.setText(n_Name);
+//
+//                    }
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//                    Toast.makeText(MainActivity.this, "Oops something went wrong, please try again", Toast.LENGTH_SHORT).show();
+//
+//                }
+//            });
+//
+//
+//        }
+
+
 
 
         // set toolbar
@@ -40,6 +116,7 @@ public class Dashboard extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_container,new DashboardFragment()).commit();
 
+        userDetails();
     }
 
 
@@ -82,5 +159,48 @@ public class Dashboard extends AppCompatActivity {
         }
         return true;
     }
+
+    // method to fill drawer menu with user details
+    private void userDetails(){
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if  (user != null){
+            databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+            if (databaseReference != null){
+                userID = user.getUid();
+                if (userID != null){
+
+                    databaseReference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                            UserModelClass userProfile = snapshot.getValue(UserModelClass.class);
+
+                            if (userProfile != null){
+
+                                String firstName = userProfile.getForname();
+                                String secondName = userProfile.getSurname();
+
+                                View header = drawerNav.getHeaderView(0);
+                                userName = header.findViewById(R.id.drawer_nav_header_userName);
+                                userName.setText(firstName + " "+  secondName);
+
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            Toast.makeText(Dashboard.this, "Ops, Something went wrong, please try again", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }
+        }
+
+
+    }
+
+
 
 }

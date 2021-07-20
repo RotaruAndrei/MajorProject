@@ -18,6 +18,7 @@ public class DashboardFragment extends Fragment {
     private MaterialCardView sendCard, complainCard, feedbackCard;
     private ExtendedFloatingActionButton button;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

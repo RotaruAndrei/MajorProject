@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Dashboard"
-    android:id="@+id/drawer_menu"
-    tools:openDrawer="start">
+    android:id="@+id/drawer_menu">
 
     <RelativeLayout
         android:layout_width="match_parent"
