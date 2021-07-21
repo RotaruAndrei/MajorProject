@@ -34,6 +34,7 @@ public class UserModelClass {
         this.userIcon = userIcon;
     }
 
+
     public ImageView getUserIcon() {
         return userIcon;
     }

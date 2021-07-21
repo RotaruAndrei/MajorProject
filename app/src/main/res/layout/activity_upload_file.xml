@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UploadFile">
+
+    <VideoView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/upload_VideoView"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/upload_VideoTitle"
+        android:layout_below="@id/upload_VideoView"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:hint="Enter video title"
+        android:textStyle="italic"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/upload_UploadButton"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:text="Upload"
+        android:backgroundTint="@color/grey"
+        android:layout_below="@id/upload_VideoTitle"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30sp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/upload_ChoseButton"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/grey"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_below="@id/upload_UploadButton"
+        android:layout_marginTop="10dp"
+        android:text="Select video"
+        />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/upload_ProgressBar"
+        android:layout_below="@id/upload_ChoseButton"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        />
+
+</RelativeLayout>

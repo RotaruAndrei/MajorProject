@@ -50,7 +50,6 @@ public class Dashboard extends AppCompatActivity {
         toolbar = findViewById(R.id.dashboard_toolbar);
         drawerNav = findViewById(R.id.dashboard_navMenu);
 
-
         userIcon = findViewById(R.id.drawer_nav_header_image);
 
 
@@ -71,38 +70,6 @@ public class Dashboard extends AppCompatActivity {
                 return true;
             }
         });
-
-
-
-
-//        if (userID != null){
-//
-//            databaseReference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot snapshot) {
-//
-//                    UserModelClass userProfile = snapshot.getValue(UserModelClass.class);
-//
-//                    if (userProfile != null){
-//
-//                        String n_Name = userProfile.getForname();
-//                        String n_Surname = userProfile.getSurname();
-//
-////                    userName.setText(n_Name);
-//
-//                    }
-//                }
-//
-//                @Override
-//                public void onCancelled(@NonNull DatabaseError error) {
-//                    Toast.makeText(MainActivity.this, "Oops something went wrong, please try again", Toast.LENGTH_SHORT).show();
-//
-//                }
-//            });
-//
-//
-//        }
-
 
 
 
