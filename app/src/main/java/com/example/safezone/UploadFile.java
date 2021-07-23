@@ -1,13 +1,23 @@
 package com.example.safezone;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -18,6 +28,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.example.safezone.fragments.DashboardFragment;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -31,6 +42,12 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 
 public class UploadFile extends AppCompatActivity {
     private static final int PICK_VIDEO = 1;
@@ -48,7 +65,7 @@ public class UploadFile extends AppCompatActivity {
     private UploadTask uploadTask;
     private UserVideosModelClass userVideosModelClass;
     private FirebaseUser currentUser;
-
+    private ActivityResultLauncher<String> getMediaContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +86,17 @@ public class UploadFile extends AppCompatActivity {
         videoView.start();
 
 
+        getMediaContent = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+            @Override
+            public void onActivityResult(Uri result) {
+
+                if (result != null){
+                    videoUri = result;
+                    videoView.setVideoURI(result);
+                }
+            }
+        });
+
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,21 +107,37 @@ public class UploadFile extends AppCompatActivity {
         selectVideoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                choseMediaType(v);
+
+            checkForPermission();
             }
         });
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    // check for user permission using Dexter library
+    private void checkForPermission () {
 
-        if (requestCode == PICK_VIDEO || resultCode == RESULT_OK){
-            videoUri = data.getData();
-            videoView.setVideoURI(videoUri);
-        }
-    }
+    Dexter.withContext(this)
+            .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+            .withListener(new PermissionListener() {
+                @Override
+                public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
+                    getMediaContent.launch("video/*");
+                }
+
+                @Override
+                public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
+                    Toast.makeText(UploadFile.this, "Permission was denied", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
+                    permissionToken.continuePermissionRequest();
+                }
+            }).check();
+
+}
+
 
     // create a method to detect the extension of the file for pc purpouse
     private String getFileExtension (Uri uri) {
@@ -161,6 +205,10 @@ public class UploadFile extends AppCompatActivity {
                                                 String ref = databaseReference.push().getKey();
                                                 databaseReference.child(ref).setValue(userVideosModelClass);
 
+                                                //send user back to the dashboard
+                                                Intent intent = new Intent(UploadFile.this, Dashboard.class);
+                                                startActivity(intent);
+
                                             }else {
                                                 Toast.makeText(UploadFile.this, "Unable to load user values", Toast.LENGTH_SHORT).show();
                                             }
@@ -178,9 +226,8 @@ public class UploadFile extends AppCompatActivity {
                                 }
 
 
-
                             }else {
-                                Toast.makeText(UploadFile.this, "Task was not successfull", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(UploadFile.this, "Task was not successful", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -188,19 +235,13 @@ public class UploadFile extends AppCompatActivity {
     }
 
 
-    // create a method to specify media type to be uploaded
-    private void choseMediaType (View view) {
-        Intent intent = new Intent();
-        intent.setType("video/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent,PICK_VIDEO);
-    }
 
+    // override the back press method to redirect the user back to dashboard
     @Override
     public void onBackPressed() {
-        
         Intent intent = new Intent(this,Dashboard.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
+
 }
