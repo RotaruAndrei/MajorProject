@@ -170,16 +170,19 @@ public class UploadFile extends AppCompatActivity {
                     return storageRef.getDownloadUrl();
                 }
             })
-                    // save video file data in the database
+                    // save video file - data in the database
                     .addOnCompleteListener(new OnCompleteListener<Uri>() {
                         @Override
                         public void onComplete(@NonNull Task<Uri> task) {
 
                             if (task.isSuccessful()){
-                                Uri downloadFile = task.getResult();
+
                                 progressBar.setVisibility(View.GONE);
+                                Uri downloadFile = task.getResult();
+
                                 Toast.makeText(UploadFile.this, "File saved successfully", Toast.LENGTH_SHORT).show();
 
+                                //  save the current user into a variable
                                 currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
                                 if (currentUser != null){

@@ -114,7 +114,7 @@ public class Dashboard extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                  FirebaseAuth.getInstance().signOut();
-                                    startActivity(new Intent(Dashboard.this,MainActivity.class));
+                                    startActivity(new Intent(Dashboard.this, HomeActivity.class));
                                 dialog.dismiss();
                             }
                         })
