@@ -38,6 +38,13 @@ dependencies {
     implementation 'com.google.firebase:firebase-database-ktx'
     implementation 'com.google.firebase:firebase-storage:20.0.0'
 
+    //work manager/ jet pack library
+    implementation "androidx.work:work-runtime:2.5.0"
+
+    //phone dependency
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
+
+
 // location dependency
     implementation 'com.google.android.gms:play-services-location:18.0.0'
 
@@ -47,6 +54,9 @@ dependencies {
 
     //Circle image dependency
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    // publish subscribe even dependency, simplify the communication between components
+    implementation 'org.greenrobot:eventbus:3.2.0'
 
 
     // Permission dependency

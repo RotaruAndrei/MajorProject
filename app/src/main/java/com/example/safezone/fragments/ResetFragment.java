@@ -77,10 +77,11 @@ public class ResetFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    Toast.makeText(getActivity(), "Check your email to reset your password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "An email has been sent to reset your password", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
                 }else {
                     Toast.makeText(getActivity(), "Email is not registered", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
                 }
             }
         });

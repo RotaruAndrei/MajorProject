@@ -107,9 +107,8 @@ public class UploadFile extends AppCompatActivity {
         selectVideoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
             checkForPermission();
-            }
+                }
         });
 
     }
@@ -239,12 +238,12 @@ public class UploadFile extends AppCompatActivity {
 
 
 
-    // override the back press method to redirect the user back to dashboard
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(this,Dashboard.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-    }
+//    // override the back press method to redirect the user back to dashboard
+//    @Override
+//    public void onBackPressed() {
+//        Intent intent = new Intent(this,Dashboard.class);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(intent);
+//    }
 
 }

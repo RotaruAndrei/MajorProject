@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.Manifest;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
+import android.telephony.TelephonyScanManager;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,6 +24,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -69,4 +78,5 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }
     };
+
 }

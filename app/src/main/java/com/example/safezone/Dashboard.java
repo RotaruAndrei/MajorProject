@@ -9,6 +9,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -49,12 +50,9 @@ public class Dashboard extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_menu);
         toolbar = findViewById(R.id.dashboard_toolbar);
         drawerNav = findViewById(R.id.dashboard_navMenu);
-
         userIcon = findViewById(R.id.drawer_nav_header_image);
 
-
-
-
+        
         // drawer menu nav logic
 
         drawerNav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
