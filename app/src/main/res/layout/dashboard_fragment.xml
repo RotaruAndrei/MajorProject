@@ -47,59 +47,12 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:id="@+id/dashboard_your_rightsCard"
-        android:layout_below="@id/dashboard_sendCard"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        app:cardElevation="7dp"
-        app:cardCornerRadius="9dp"
-        android:backgroundTint="@color/purple_200">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:id="@+id/dashboard_your_rightsCard_Icon"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="20dp"
-                android:src="@drawable/ic_dashboard_rights"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/dashboard_complain_Title"
-                android:text="Your rights"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold|italic"
-                android:layout_toEndOf="@id/dashboard_your_rightsCard_Icon"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="20dp"
-                />
-
-        </RelativeLayout>
-
-
-
-
-    </com.google.android.material.card.MaterialCardView>
-
-
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:id="@+id/dashboard_newsCard"
         android:backgroundTint="@color/purple_200"
-        android:layout_below="@id/dashboard_your_rightsCard"
+        android:layout_below="@id/dashboard_sendCard"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
@@ -140,7 +93,6 @@
 
 
     </com.google.android.material.card.MaterialCardView>
-
 
     <com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout
         android:layout_width="match_parent"

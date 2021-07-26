@@ -42,7 +42,7 @@ import static android.content.ContentValues.TAG;
 
 public class DashboardFragment extends Fragment {
 
-    private MaterialCardView sendCard, complainCard, feedbackCard;
+    private MaterialCardView sendCard,newsCard;
     private ExtendedFloatingActionButton sendBtn, cancelBtn;
     private FirebaseUser currentUser;
     //create a variable to check if the Emergency button has been activated
@@ -64,10 +64,9 @@ public class DashboardFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dashboard_fragment,container,false);
         sendCard = view.findViewById(R.id.dashboard_sendCard);
-        complainCard = view.findViewById(R.id.dashboard_your_rightsCard);
-        feedbackCard = view.findViewById(R.id.dashboard_newsCard);
         sendBtn = view.findViewById(R.id.dashboard_extendedFloatingButton);
         cancelBtn = view.findViewById(R.id.dashboard_extendedFloatingButton_CanceSOS);
+        newsCard = view.findViewById(R.id.dashboard_newsCard);
 
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
