@@ -14,12 +14,13 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/help"
         android:supportsRtl="true"
         android:theme="@style/Theme.SafeZone">
-        <activity android:name=".UserProfile"></activity>
+        <activity android:name=".Website"></activity>
+        <activity android:name=".UserProfile" />
         <activity android:name=".NewsBoard" />
         <activity android:name=".UploadFile" />
         <activity android:name=".Dashboard" />

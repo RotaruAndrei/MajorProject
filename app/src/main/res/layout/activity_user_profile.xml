@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserProfile">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:id="@+id/userProfile_titleLayout"
+        android:background="@color/yellow">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/titleText"
+            android:text="@string/headerTitle"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:layout_centerInParent="true"
+            android:textColor="@color/black"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/userProfile_layout"
+        android:layout_below="@id/userProfile_titleLayout">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/userProfile_scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/userProfile_userMainImage"
+            android:src="@mipmap/ic_launcher_round"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/userProfile_userFullName"
+            android:text="User Surname + Forename"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/userProfile_userMainImage"
+            android:layout_centerHorizontal="true"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/userProfile_userEmail"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:text="User Email"
+            android:layout_below="@id/userProfile_userFullName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            />
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/userProfile_editNameLayout"
+            android:layout_below="@id/userProfile_userEmail"
+            android:layout_marginTop="30sp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/userProfile_editIconName"
+                android:src="@drawable/ic_first_name"
+                android:layout_marginStart="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/userProfile_userEditName"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="User name"
+                android:layout_toEndOf="@id/userProfile_editIconName"
+                android:layout_marginStart="20dp"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/userProfile_editEmailLayout"
+            android:layout_below="@id/userProfile_editNameLayout"
+            android:layout_marginTop="10dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/userProfile_editIconEmail"
+                android:src="@drawable/ic_register_email_icon"
+                android:layout_marginStart="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/userProfile_userEditEmail"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="User Email"
+                android:layout_toEndOf="@id/userProfile_editIconEmail"
+                android:layout_marginStart="20dp"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/userProfile_editPhoneLayout"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/userProfile_editEmailLayout"        >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/userProfile_editIconPhone"
+                android:src="@drawable/ic_phone"
+                android:layout_marginStart="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/userProfile_userEditPhone"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="User Phone"
+                android:layout_toEndOf="@id/userProfile_editIconPhone"
+                android:layout_marginStart="20dp"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/userProfile_updateBtnLayout"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/userProfile_updateBtn"
+                android:text="Update details"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/yellow"
+                android:textColor="@color/black"
+                />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+</RelativeLayout>

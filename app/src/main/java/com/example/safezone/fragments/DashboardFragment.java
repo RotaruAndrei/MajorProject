@@ -77,7 +77,7 @@ public class DashboardFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        
+
 
         View view = inflater.inflate(R.layout.dashboard_fragment,container,false);
         sendCard = view.findViewById(R.id.dashboard_sendCard);

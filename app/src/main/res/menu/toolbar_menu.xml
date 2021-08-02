@@ -5,6 +5,7 @@
     <item android:title="Logout"
         android:id="@+id/dashboard_toolbar_logout"
         android:icon="@drawable/ic_toolbar_logout"
+        android:iconTint="@color/black"
         app:showAsAction="always"/>
 
 </menu>
