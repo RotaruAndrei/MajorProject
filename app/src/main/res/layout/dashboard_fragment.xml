@@ -111,19 +111,6 @@
             android:backgroundTint="@color/yellow"
             />
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/dashboard_extendedFloatingButton_CanceSOS"
-            android:textColor="@color/white"
-            android:textAllCaps="false"
-            android:text="@string/cancelSOS"
-            app:icon="@drawable/ic_dashboard_sos"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/yellow"
-            android:visibility="gone"
-            />
-
     </com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout>
 
 </RelativeLayout>

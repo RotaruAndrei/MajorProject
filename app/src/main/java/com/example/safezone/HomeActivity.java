@@ -4,19 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import android.view.MenuItem;
-import android.widget.Toast;
-
-
 import com.example.safezone.fragments.LoginFragment;
 import com.example.safezone.fragments.RegisterFragment;
 import com.example.safezone.fragments.ResetFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import static com.example.safezone.fragments.LoginFragment.REMEMBER_USER;
 
@@ -24,6 +20,8 @@ import static com.example.safezone.fragments.LoginFragment.REMEMBER_USER;
 public class HomeActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
+    private FirebaseAuth authentication;
+    private FirebaseUser user;
 
 
 
@@ -35,20 +33,8 @@ public class HomeActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.mainBottomNav);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new LoginFragment()).commit();
-
-
-//        SharedPreferences share = getSharedPreferences("checkbox", Context.MODE_PRIVATE);
-//        String checkBoxValidation = share.getString(REMEMBER_USER,"");
-//
-//        if (checkBoxValidation.equals("true")){
-//
-//            Intent intent = new Intent(this,Dashboard.class);
-//            startActivity(intent);
-//
-//        }else if (checkBoxValidation.equals("false")){
-//
-//            Toast.makeText(this, "Please login again", Toast.LENGTH_SHORT).show();
-//        }
+        authentication = FirebaseAuth.getInstance();
+        user = authentication.getCurrentUser();
 
 
     }
@@ -81,4 +67,14 @@ public class HomeActivity extends AppCompatActivity {
         }
     };
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (user != null){
+
+            Intent intent = new Intent(this,Dashboard.class);
+            startActivity(intent);
+        }
+    }
 }

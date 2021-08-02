@@ -1,26 +1,21 @@
 package com.example.safezone.fragments;
 
-import android.content.Context;
+
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import com.example.safezone.Dashboard;
 import com.example.safezone.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -35,7 +30,6 @@ public class LoginFragment extends Fragment {
     private EditText email, password;
     private TextView emailTitle, passwordTitle, remember;
     private ImageView emailIcon, passwordIcon;
-    private CheckBox checkBox;
     private Button button;
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
@@ -50,14 +44,10 @@ public class LoginFragment extends Fragment {
         password = view.findViewById(R.id.loginPassword);
         emailTitle = view.findViewById(R.id.loginEmailTv);
         passwordTitle = view.findViewById(R.id.loginPasswordTv);
-        remember = view.findViewById(R.id.loginCheckboxTitle);
         emailIcon = view.findViewById(R.id.loginEmailImage);
         passwordIcon = view.findViewById(R.id.loginPasswordImage);
-        checkBox = view.findViewById(R.id.loginCheckBox);
         button = view.findViewById(R.id.loginButton);
         progressBar = view.findViewById(R.id.login_Fragment_ProgressBar);
-
-
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -68,34 +58,12 @@ public class LoginFragment extends Fragment {
             }
         });
 
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (buttonView.isChecked()){
-
-                    SharedPreferences share = getActivity().getSharedPreferences("checkbox", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = share.edit();
-                    editor.putString(REMEMBER_USER,"true");
-                    editor.apply();
-                    Toast.makeText(getActivity(), "Remember was checked", Toast.LENGTH_SHORT).show();
-
-                }else if (!buttonView.isChecked()){
-
-                    SharedPreferences share = getActivity().getSharedPreferences("checkbox", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = share.edit();
-                    editor.putString(REMEMBER_USER,"false");
-                    editor.apply();
-                    Toast.makeText(getActivity(), "Remember was unchecked", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
 
         return view;
     }
 
 
     // firebase logic
-
     private void userLogin (){
 
         mAuth = FirebaseAuth.getInstance();

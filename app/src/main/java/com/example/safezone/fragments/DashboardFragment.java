@@ -62,7 +62,7 @@ public class DashboardFragment extends Fragment {
 
     private MaterialCardView sendCard,newsCard;
 
-    private ExtendedFloatingActionButton sendBtn, cancelBtn;
+    private ExtendedFloatingActionButton sendBtn;
     private FirebaseUser currentUser;
     //create a variable to check if the Emergency button has been activated
     public static boolean isActivated;
@@ -77,15 +77,11 @@ public class DashboardFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-
-
-
+        
 
         View view = inflater.inflate(R.layout.dashboard_fragment,container,false);
         sendCard = view.findViewById(R.id.dashboard_sendCard);
         sendBtn = view.findViewById(R.id.dashboard_extendedFloatingButton);
-        cancelBtn = view.findViewById(R.id.dashboard_extendedFloatingButton_CanceSOS);
         newsCard = view.findViewById(R.id.dashboard_newsCard);
 
 
@@ -118,43 +114,6 @@ public class DashboardFragment extends Fragment {
                     checkForPermission();
             }
         });
-
-        cancelBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //the SOS button has been deactivated
-                isActivated = false;
-
-                // if the user stops the SOS feature set visibility gone to cancel button
-                //  show the alert dialog if the user wants to cancel
-                new AlertDialog.Builder(getContext())
-                        .setTitle("Close S.O.S service")
-                        .setMessage("Are you safe?")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-
-                                workManager.cancelWorkById(locID);
-                                workManager.cancelAllWorkByTag("Location");
-
-                                Log.d(TAG, "onClick: " + "GPS location ended");
-                                cancelBtn.setVisibility(View.GONE);
-                                sendBtn.setVisibility(View.VISIBLE);
-                            }
-                        })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .create().show();
-            }
-        });
-
-
 
 
         return view;
@@ -229,9 +188,7 @@ public class DashboardFragment extends Fragment {
 
         if (isActivated){
             sendBtn.setVisibility(View.GONE);
-            cancelBtn.setVisibility(View.VISIBLE);
         }else {
-            cancelBtn.setVisibility(View.GONE);
             sendBtn.setVisibility(View.VISIBLE);
         }
     }

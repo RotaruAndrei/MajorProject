@@ -105,34 +105,6 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/loginFragment_checkBoxLayout"
-        android:layout_below="@id/loginFragment_passwordLayout"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp">
-
-        <CheckBox
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="30dp"
-            android:id="@+id/loginCheckBox"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/loginCheckboxTitle"
-            android:text="Remember me"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@id/loginCheckBox"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/grey"
-            android:textStyle="italic"/>
-
-
-    </RelativeLayout>
-
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
