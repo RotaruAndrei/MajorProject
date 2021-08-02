@@ -26,7 +26,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.StorageReference;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Dashboard extends AppCompatActivity {
@@ -78,7 +78,7 @@ public class Dashboard extends AppCompatActivity {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
 
-                                        Intent intent = new Intent(Dashboard.this, Website.class);
+                                        Intent intent = new Intent(Dashboard.this, AboutWebsite.class);
                                         startActivity(intent);
                                     }
                                 }).setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {

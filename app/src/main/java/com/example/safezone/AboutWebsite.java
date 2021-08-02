@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class Website extends AppCompatActivity {
+public class AboutWebsite extends AppCompatActivity {
 
     private WebView webView;
     @Override

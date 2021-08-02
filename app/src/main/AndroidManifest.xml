@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/help"
         android:supportsRtl="true"
         android:theme="@style/Theme.SafeZone">
-        <activity android:name=".Website"></activity>
+        <activity android:name=".NewsWebsite"></activity>
+        <activity android:name=".AboutWebsite" />
         <activity android:name=".UserProfile" />
         <activity android:name=".NewsBoard" />
         <activity android:name=".UploadFile" />

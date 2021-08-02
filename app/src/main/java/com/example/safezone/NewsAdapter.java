@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import static com.example.safezone.NewsWebsite.NEWS_CARD_STRING;
+
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
     private ArrayList<NewsItem> newsItem = new ArrayList();
     private Context context;
@@ -40,6 +42,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
             @Override
             public void onClick(View v) {
                 // TODO: 26/07/2021 navigate the user to web activity
+                Intent intent = new Intent(context,NewsWebsite.class);
+                intent.putExtra(NEWS_CARD_STRING,newsItem.get(position).getLink());
+                context.startActivity(intent);
             }
         });
     }
