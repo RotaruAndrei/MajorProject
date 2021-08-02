@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SafeZone">
-        <activity android:name=".NewsBoard"></activity>
+        <activity android:name=".UserProfile"></activity>
+        <activity android:name=".NewsBoard" />
         <activity android:name=".UploadFile" />
         <activity android:name=".Dashboard" />
         <activity android:name=".HomeActivity">

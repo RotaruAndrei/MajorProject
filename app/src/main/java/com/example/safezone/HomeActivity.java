@@ -4,37 +4,28 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
-import android.telephony.TelephonyScanManager;
+
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
+
 
 import com.example.safezone.fragments.LoginFragment;
 import com.example.safezone.fragments.RegisterFragment;
 import com.example.safezone.fragments.ResetFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.karumi.dexter.Dexter;
-import com.karumi.dexter.PermissionToken;
-import com.karumi.dexter.listener.PermissionDeniedResponse;
-import com.karumi.dexter.listener.PermissionGrantedResponse;
-import com.karumi.dexter.listener.PermissionRequest;
-import com.karumi.dexter.listener.single.PermissionListener;
+
+import static com.example.safezone.fragments.LoginFragment.REMEMBER_USER;
+
 
 public class HomeActivity extends AppCompatActivity {
 
-
     private BottomNavigationView bottomNavigationView;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +37,21 @@ public class HomeActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new LoginFragment()).commit();
 
 
+//        SharedPreferences share = getSharedPreferences("checkbox", Context.MODE_PRIVATE);
+//        String checkBoxValidation = share.getString(REMEMBER_USER,"");
+//
+//        if (checkBoxValidation.equals("true")){
+//
+//            Intent intent = new Intent(this,Dashboard.class);
+//            startActivity(intent);
+//
+//        }else if (checkBoxValidation.equals("false")){
+//
+//            Toast.makeText(this, "Please login again", Toast.LENGTH_SHORT).show();
+//        }
 
 
     }
-
 
     private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override

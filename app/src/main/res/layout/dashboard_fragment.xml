@@ -14,7 +14,7 @@
         android:layout_marginEnd="20dp"
         app:cardCornerRadius="9dp"
         app:cardElevation="7dp"
-        android:backgroundTint="@color/purple_200">
+        android:backgroundTint="@color/yellow">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:id="@+id/dashboard_newsCard"
-        android:backgroundTint="@color/purple_200"
+        android:backgroundTint="@color/yellow"
         android:layout_below="@id/dashboard_sendCard"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
@@ -108,7 +108,7 @@
             android:textAllCaps="false"
             app:icon="@drawable/ic_dashboard_sos"
             android:layout_gravity="center"
-            android:backgroundTint="@color/purple_200"
+            android:backgroundTint="@color/yellow"
             />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -120,7 +120,7 @@
             android:text="@string/cancelSOS"
             app:icon="@drawable/ic_dashboard_sos"
             android:layout_gravity="center"
-            android:backgroundTint="@color/purple_200"
+            android:backgroundTint="@color/yellow"
             android:visibility="gone"
             />
 

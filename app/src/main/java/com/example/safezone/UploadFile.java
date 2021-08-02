@@ -1,23 +1,16 @@
 package com.example.safezone;
 
-import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -28,7 +21,6 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-import com.example.safezone.fragments.DashboardFragment;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -157,7 +149,7 @@ public class UploadFile extends AppCompatActivity {
             uploadTask = storageRef.putFile(videoUri);
 
 
-            // create a task to retrieve video from firebase
+            // create a task to retrieve video url from firebase
             Task<Uri> uriTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                 @Override
                 public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
@@ -196,7 +188,7 @@ public class UploadFile extends AppCompatActivity {
 
                                             if (tempUser != null){
 
-                                                String currentUserName = tempUser.getForname() + " " + tempUser.getSurname();
+                                                String currentUserName = tempUser.getForename() + " " + tempUser.getSurname();
 
                                                 userVideosModelClass.setUserName(currentUserName);
                                                 userVideosModelClass.setVideoTitle(videoName);
@@ -236,14 +228,5 @@ public class UploadFile extends AppCompatActivity {
         }
     }
 
-
-
-//    // override the back press method to redirect the user back to dashboard
-//    @Override
-//    public void onBackPressed() {
-//        Intent intent = new Intent(this,Dashboard.class);
-//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-//        startActivity(intent);
-//    }
 
 }

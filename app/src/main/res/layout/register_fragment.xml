@@ -241,6 +241,7 @@
             android:layout_marginStart="15dp"
             android:hint="Enter your phone number"
             android:textStyle="italic"
+            android:inputType="number"
             android:layout_below="@id/registerPhoneTitle"
             />
 

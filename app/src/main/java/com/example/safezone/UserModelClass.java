@@ -1,54 +1,59 @@
 package com.example.safezone;
 
-import android.widget.ImageView;
 
 public class UserModelClass {
-    private String forname;
+
+    private String forename;
     private String surname;
     private String email;
     private String phoneNumber;
-    private ImageView userIcon;
+    private String userIcon = "";
+
 
     public UserModelClass() {
 
     }
 
-    public UserModelClass(String forname, String surname, String email) {
-        this.forname = forname;
-        this.surname = surname;
-        this.email = email;
+    public UserModelClass(String userIcon) {
+        this.userIcon = userIcon;
     }
 
-    public UserModelClass(String forname, String surname, String email, String phoneNumber) {
-        this.forname = forname;
+    public UserModelClass(String phoneNumber, String imgUrl) {
+        this.phoneNumber = phoneNumber;
+        this.userIcon = imgUrl;
+    }
+
+    public UserModelClass(String forename, String surname, String email, String phoneNumber) {
+        this.forename = forename;
         this.surname = surname;
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
 
-    public UserModelClass(String forname, String surname, String email, String phoneNumber, ImageView userIcon) {
-        this.forname = forname;
+    public UserModelClass(String forename, String surname, String email, String phoneNumber, String userIcon) {
+        this.forename = forename;
         this.surname = surname;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.userIcon = userIcon;
+
     }
 
 
-    public ImageView getUserIcon() {
+    public String getUserIcon() {
         return userIcon;
     }
 
-    public void setUserIcon(ImageView userIcon) {
+    public void setUserIcon(String userIcon) {
         this.userIcon = userIcon;
     }
 
-    public String getForname() {
-        return forname;
+    public String getForename() {
+        return forename;
     }
 
-    public void setForname(String forname) {
-        this.forname = forname;
+    public void setForename(String forename) {
+        this.forename = forename;
     }
 
     public String getSurname() {

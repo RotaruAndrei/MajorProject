@@ -10,11 +10,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.PowerManager;
 import android.util.Log;
 import android.util.Xml;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.TableRow;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -58,9 +60,8 @@ import static android.content.ContentValues.TAG;
 
 public class DashboardFragment extends Fragment {
 
-    public static int ON = 0 ;
-
     private MaterialCardView sendCard,newsCard;
+
     private ExtendedFloatingActionButton sendBtn, cancelBtn;
     private FirebaseUser currentUser;
     //create a variable to check if the Emergency button has been activated
@@ -76,6 +77,11 @@ public class DashboardFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+
+
+
+
         View view = inflater.inflate(R.layout.dashboard_fragment,container,false);
         sendCard = view.findViewById(R.id.dashboard_sendCard);
         sendBtn = view.findViewById(R.id.dashboard_extendedFloatingButton);
@@ -129,7 +135,6 @@ public class DashboardFragment extends Fragment {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 
-                                ON = 0;
 
                                 workManager.cancelWorkById(locID);
                                 workManager.cancelAllWorkByTag("Location");
@@ -148,6 +153,9 @@ public class DashboardFragment extends Fragment {
                         .create().show();
             }
         });
+
+
+
 
         return view;
     }
@@ -176,11 +184,6 @@ public class DashboardFragment extends Fragment {
                                         // SOS button is active
                                         isActivated = true;
 
-
-//                                         send user id to workmanager task
-
-
-
                                         //create a simpler request
                                         OneTimeWorkRequest locRequest = new OneTimeWorkRequest.Builder(LocationServiceWorker.class)
                                                 .addTag("Location")
@@ -189,10 +192,9 @@ public class DashboardFragment extends Fragment {
                                         locID = locRequest.getId();
                                         //create the enqueue for the request
                                         workManager.enqueueUniqueWork("userLocation",ExistingWorkPolicy.REPLACE,locRequest);
-                                        ON = 1;
 //                                        // set buttons visibility accordingly
                                         sendBtn.setVisibility(View.GONE);
-                                        cancelBtn.setVisibility(View.VISIBLE);
+
                                     }
                                 })
                                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -216,6 +218,8 @@ public class DashboardFragment extends Fragment {
                     }
 
                 }).check();
+
+
     }
 
 
@@ -231,9 +235,5 @@ public class DashboardFragment extends Fragment {
             sendBtn.setVisibility(View.VISIBLE);
         }
     }
-
-
-
-
 
 }

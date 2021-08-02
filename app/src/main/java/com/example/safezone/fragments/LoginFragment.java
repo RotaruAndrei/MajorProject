@@ -1,6 +1,8 @@
 package com.example.safezone.fragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -28,6 +31,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginFragment extends Fragment {
 
+    public static final String REMEMBER_USER = "rememberUser";
     private EditText email, password;
     private TextView emailTitle, passwordTitle, remember;
     private ImageView emailIcon, passwordIcon;
@@ -55,6 +59,7 @@ public class LoginFragment extends Fragment {
 
 
 
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,8 +68,31 @@ public class LoginFragment extends Fragment {
             }
         });
 
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (buttonView.isChecked()){
+
+                    SharedPreferences share = getActivity().getSharedPreferences("checkbox", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = share.edit();
+                    editor.putString(REMEMBER_USER,"true");
+                    editor.apply();
+                    Toast.makeText(getActivity(), "Remember was checked", Toast.LENGTH_SHORT).show();
+
+                }else if (!buttonView.isChecked()){
+
+                    SharedPreferences share = getActivity().getSharedPreferences("checkbox", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = share.edit();
+                    editor.putString(REMEMBER_USER,"false");
+                    editor.apply();
+                    Toast.makeText(getActivity(), "Remember was unchecked", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         return view;
     }
+
 
     // firebase logic
 
@@ -115,6 +143,7 @@ public class LoginFragment extends Fragment {
                         startActivity(intent);
                     }else {
 
+                        progressBar.setVisibility(View.GONE);
                         user.sendEmailVerification();
                         Toast.makeText(getActivity(), "Check your email in order to verify your account", Toast.LENGTH_SHORT).show();
                     }
@@ -128,5 +157,11 @@ public class LoginFragment extends Fragment {
                 }
             }
         });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
     }
 }

@@ -6,13 +6,10 @@ import android.annotation.SuppressLint;
 
 import android.content.Context;
 
-import android.os.HandlerThread;
 import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
-
-import androidx.work.RxWorker;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -20,8 +17,7 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.Task;
-import com.google.common.util.concurrent.ListenableFuture;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -31,13 +27,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
-import java.util.logging.Handler;
-
-import io.reactivex.Single;
-import kotlin.jvm.internal.Ref;
-
-import static com.example.safezone.fragments.DashboardFragment.ON;
-
 
 public class LocationServiceWorker extends Worker {
     private static final String TAG = "LocationServiceWorker";
@@ -46,7 +35,6 @@ public class LocationServiceWorker extends Worker {
     private LocationCallback locationCallback;
     private FirebaseUser currentUser;
     private String emergencyUserkey;
-    private String userID;
     private DatabaseReference databaseReference;
     UserEmergencyModelClass user = new UserEmergencyModelClass();
 
@@ -122,7 +110,7 @@ public class LocationServiceWorker extends Worker {
                     if (tempUser != null) {
 
                         //get current user name and phone number
-                        String tempName = tempUser.getForname() + " " + tempUser.getSurname();
+                        String tempName = tempUser.getForename() + " " + tempUser.getSurname();
                         String tempPhone = tempUser.getPhoneNumber();
 
                         user.setUserName(tempName);
